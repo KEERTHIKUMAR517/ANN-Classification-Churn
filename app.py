@@ -5,7 +5,6 @@ from sklearn.preprocessing import StandardScaler, LabelEncoder, OneHotEncoder
 import pandas as pd
 import pickle
 
-
 # Load the trained model
 model = tf.keras.models.load_model('model.h5')
 
@@ -21,7 +20,7 @@ with open('scaler.pkl', 'rb') as file:
 
 
 ## streamlit app
-st.title('Customer Churn Prediction')
+st.title('Customer Churn PRediction')
 
 # User input
 geography = st.selectbox('Geography', onehot_encoder_geo.categories_[0])
@@ -47,7 +46,6 @@ input_data = pd.DataFrame({
     'IsActiveMember': [is_active_member],
     'EstimatedSalary': [estimated_salary]
 })
-
 
 # One-hot encode 'Geography'
 geo_encoded = onehot_encoder_geo.transform([[geography]]).toarray()
